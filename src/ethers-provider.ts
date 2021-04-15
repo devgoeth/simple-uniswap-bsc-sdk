@@ -1,5 +1,5 @@
-import { Contract, ContractInterface } from 'ethers-bsc';
-import * as providers from 'ethers-bsc';
+import { Contract, ContractInterface } from '@ethersproject-bsc/contracts';
+import * as providers from '@ethersproject-bsc/providers';
 import { ErrorCodes } from './common/errors/error-codes';
 import { UniswapError } from './common/errors/uniswap-error';
 import { ChainId, ChainNames } from './enums/chain-id';

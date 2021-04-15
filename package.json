@@ -9,7 +9,7 @@
     "gen-uniswap-router-v2-abi": "abi-types-generator ./src/ABI/uniswap-router-v2.json --output=./src/ABI/types --name=uniswap-router --provider=ethers_v5",
     "gen-uniswap-factory-v2-abi": "abi-types-generator ./src/ABI/uniswap-factory-v2.json --output=./src/ABI/types --name=uniswap-factory --provider=ethers_v5",
     "gen-uniswap-pair-v2-abi": "abi-types-generator ./src/ABI/uniswap-pair-v2.json --output=./src/ABI/types --name=uniswap-pair --provider=ethers_v5",
-    "gen-all-contract-types": "npm run gen-erc20-abi && npm run gen-uniswap-router-v2-abi && npm run gen-uniswap-factory-v2-abi && npm run gen-uniswap-pair-v2-abi",
+    "gen-all-contract-types": "npm run gen-erc20-abi && npm run gen-uniswap-router-v2-abi && npm run gen-uniswap-factory-v2-abi && npm run gen-uniswap-pair-v2-abi"
   },
   "repository": {
     "type": "git",
@@ -30,10 +30,10 @@
   "homepage": "https://github.com/devgoeth/simple-uniswap-bsc-sdk#readme",
   "dependencies": {
     "bignumber.js": "^9.0.1",
-    "ethereum-multicall": "^2.0.1",
     "ethereum-bsc-multicall": "^2.0.1",
+    "ethereum-multicall": "^2.0.1",
     "ethers": "^5.0.26",
-    "ethers-bsc": "^5.0.10",
+    "ethers-bsc": "^5.1.17",
     "rxjs": "^6.6.3"
   },
   "devDependencies": {
