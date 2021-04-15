@@ -1,6 +1,6 @@
 {
   "name": "simple-uniswap-bsc-sdk",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Simple easy to understand SDK adapted for BSC!",
   "main": "dist/index.js",
   "scripts": {
@@ -32,7 +32,6 @@
     "bignumber.js": "^9.0.1",
     "ethereum-bsc-multicall": "^2.0.1",
     "ethereum-multicall": "^2.0.1",
-    "ethers": "^5.0.26",
     "ethers-bsc": "^5.1.17",
     "rxjs": "^6.6.3"
   },

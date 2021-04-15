@@ -4,7 +4,7 @@ import {
   BytesLike as Arrayish,
   BigNumber,
   BigNumberish,
-} from 'ethers';
+} from 'ethers-bsc';
 import { EthersContractContextV5 } from 'ethereum-abi-types-generator';
 
 export type ContractContext = EthersContractContextV5<

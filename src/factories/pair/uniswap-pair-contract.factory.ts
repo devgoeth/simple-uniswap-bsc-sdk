@@ -1,4 +1,4 @@
-import { BigNumberish } from 'ethers';
+import { BigNumberish } from 'ethers-bsc';
 import { ContractContext as PairContractContext } from '../../ABI/types/uniswap-pair';
 import { ContractContext } from '../../common/contract-context';
 import { EthersProvider } from '../../ethers-provider';

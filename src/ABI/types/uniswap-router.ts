@@ -4,7 +4,7 @@ import {
   BigNumberish,
   BytesLike as Arrayish,
   ContractTransaction,
-} from 'ethers';
+} from 'ethers-bsc';
 
 export type ContractContext = EthersContractContextV5<
   UniswapRouter,

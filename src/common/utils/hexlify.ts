@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { BigNumber as EthersBigNumber } from 'ethers';
+import { BigNumber as EthersBigNumber } from 'ethers-bsc';
 import { hexlify as EthersHexlify } from 'ethers/lib/utils';
 
 /**

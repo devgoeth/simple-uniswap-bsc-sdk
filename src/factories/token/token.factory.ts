@@ -1,5 +1,5 @@
 import { ContractCallContext, Multicall } from 'ethereum-bsc-multicall';
-import { BigNumber } from 'ethers';
+import { BigNumber } from 'ethers-bsc';
 import { ContractContext as ERC20ContractContext } from '../../ABI/types/erc20-contract';
 import { ContractContext } from '../../common/contract-context';
 import { EthersProvider } from '../../ethers-provider';
