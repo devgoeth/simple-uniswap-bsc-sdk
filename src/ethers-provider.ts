@@ -1,10 +1,8 @@
-import { Contract, ContractInterface } from '@ethersproject-bsc';
-import * as providers from "@ethersproject-bsc";
+import { Contract, ContractInterface } from 'ethers-bsc';
+import * as providers from 'ethers-bsc';
 import { ErrorCodes } from './common/errors/error-codes';
 import { UniswapError } from './common/errors/uniswap-error';
 import { ChainId, ChainNames } from './enums/chain-id';
-// import {getDefaultProvider} from "@ethersproject/providers";
-// import {config} from "../config";
 
 export class EthersProvider {
   private _ethersProvider: providers.BaseProvider;
@@ -22,7 +20,6 @@ export class EthersProvider {
         name: chainName,
         chainId,
       });
-      // this._ethersProvider =  getDefaultProvider(config.endpoints.mainnet)
       return;
     }
 

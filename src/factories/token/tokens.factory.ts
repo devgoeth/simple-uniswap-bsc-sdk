@@ -1,4 +1,4 @@
-import { ContractCallContext, Multicall } from '@ethereum-bsc-multicall';
+import { ContractCallContext, Multicall } from 'ethereum-bsc-multicall';
 import { ContractContext } from '../../common/contract-context';
 import { ErrorCodes } from '../../common/errors/error-codes';
 import { UniswapError } from '../../common/errors/uniswap-error';

@@ -10,7 +10,6 @@
     "gen-uniswap-factory-v2-abi": "abi-types-generator ./src/ABI/uniswap-factory-v2.json --output=./src/ABI/types --name=uniswap-factory --provider=ethers_v5",
     "gen-uniswap-pair-v2-abi": "abi-types-generator ./src/ABI/uniswap-pair-v2.json --output=./src/ABI/types --name=uniswap-pair --provider=ethers_v5",
     "gen-all-contract-types": "npm run gen-erc20-abi && npm run gen-uniswap-router-v2-abi && npm run gen-uniswap-factory-v2-abi && npm run gen-uniswap-pair-v2-abi",
-    "prepublishOnly": "tsc"
   },
   "repository": {
     "type": "git",
@@ -32,9 +31,9 @@
   "dependencies": {
     "bignumber.js": "^9.0.1",
     "ethereum-multicall": "^2.0.1",
-    "@ethereum-bsc-multicall": "^2.0.1",
+    "ethereum-bsc-multicall": "^2.0.1",
     "ethers": "^5.0.26",
-    "@ethersproject-bsc": "^5.0.26",
+    "ethers-bsc": "^5.0.10",
     "rxjs": "^6.6.3"
   },
   "devDependencies": {

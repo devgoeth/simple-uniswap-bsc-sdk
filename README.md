@@ -1,11 +1,11 @@
-# simple-uniswap-sdk
+# simple-sushiswap-sdk
 
-[![npm version](https://badge.fury.io/js/simple-uniswap-sdk.svg)](https://badge.fury.io/js/simple-uniswap-sdk)
-![downloads](https://img.shields.io/npm/dw/simple-uniswap-sdk)
+[![npm version](https://badge.fury.io/js/simple-sushiswap-sdk.svg)](https://badge.fury.io/js/simple-sushiswap-sdk)
+![downloads](https://img.shields.io/npm/dw/simple-sushiswap-sdk)
 
 Sushiswap SDK which handles the routes automatically for you, changes in trade quotes reactive subscriptions, exposure to formatted easy to understand information, bringing back the best trade quotes automatically, generating transactions for you and much more. All the Sushiswap logic for you in a simple to easy understand interface to hook straight into your dApp without having to understand how it all works.
 
-Please note this is not owned or maintained by uniswap and is a open source package for anyone to use freely.
+Please note this is not owned or maintained by sushiswap and is a open source package for anyone to use freely.
 
 ## Features 🚀
 
@@ -32,7 +32,7 @@ Please note this is not owned or maintained by uniswap and is a open source pack
 
 - 🚀query many tokens in 1 jsonrpc call perfect to get token metadata fast
   <br/>
-- 🚀all the uniswap contracts are all exposed for your use with full typings if you wanted to call a more bespoke method
+- 🚀all the sushiswap contracts are all exposed for your use with full typings if you wanted to call a more bespoke method
   <br/>
 - 🚀 and much more!!
 
@@ -40,32 +40,32 @@ Please note this is not owned or maintained by uniswap and is a open source pack
 
 As a ethereum dApp developer you try to get your dApp experience as integrated as possible, Ethereum right now is hard to show in a web2.0 world as it is. On top of this as a developer you have to learn all the complex stuff for the blockchain which can take its toll on you.
 
-When I was integrating uniswap on our wallet I found that their `SDK` was a bit too much for what I needed. Deepdown from the dApp point of view I only really cared about getting the best price for the user with all the fees related. I also found myself having to write a lot of custom code which I thought could be abstracted away so nobody has to deal with that again. A lot of the uniswap features like routing is all done in their client itself which is great but not when you want to use it in a more integrated approach in your on dApp.
+When I was integrating sushiswap on our wallet I found that their `SDK` was a bit too much for what I needed. Deepdown from the dApp point of view I only really cared about getting the best price for the user with all the fees related. I also found myself having to write a lot of custom code which I thought could be abstracted away so nobody has to deal with that again. A lot of the sushiswap features like routing is all done in their client itself which is great but not when you want to use it in a more integrated approach in your on dApp.
 
 # Installing
 
 ## npm
 
 ```bash
-$ npm install simple-uniswap-sdk
+$ npm install simple-sushiswap-sdk
 ```
 
 ## yarn
 
 ```bash
-$ yarn add simple-uniswap-sdk
+$ yarn add simple-sushiswap-sdk
 ```
 
 # SDK guide
 
-## Creating a uniswap pair factory
+## Creating a sushiswap pair factory
 
-The uniswap pair factory is an instance which is joint together with the `from` token and the `to` token, it is all self contained in the instance and exposes easy methods for you to call to start using uniswap.
+The sushiswap pair factory is an instance which is joint together with the `from` token and the `to` token, it is all self contained in the instance and exposes easy methods for you to call to start using sushiswap.
 
 ```ts
 export class SushiswapPair {
   constructor(
-    private _uniswapPairContext:
+    private _sushiswapPairContext:
       | SushiswapPairContextForChainId
       | SushiswapPairContextForProviderUrl
 )
@@ -117,9 +117,9 @@ export class SushiswapPairSettings {
 ```
 
 ```ts
-import { SushiswapPair, ChainId } from 'simple-uniswap-sdk';
+import { SushiswapPair, ChainId } from 'simple-sushiswap-sdk';
 
-const uniswapPair = new SushiswapPair({
+const sushiswapPair = new SushiswapPair({
   // the contract address of the token you want to convert FROM
   fromTokenContractAddress: '0x111111111117dC0aa78b770fA6A738034120C302',
   // the contract address of the token you want to convert TO
@@ -144,7 +144,7 @@ const uniswapPair = new SushiswapPair({
 });
 
 // now to create the factory you just do
-const uniswapPair = await uniswapPair.createFactory();
+const sushiswapPair = await sushiswapPair.createFactory();
 ```
 
 ## Catching error
@@ -205,9 +205,9 @@ export interface Token {
 #### Usage
 
 ```ts
-import { SushiswapPair, ChainId } from 'simple-uniswap-sdk';
+import { SushiswapPair, ChainId } from 'simple-sushiswap-sdk';
 
-const uniswapPair = new SushiswapPair({
+const sushiswapPair = new SushiswapPair({
   // the contract address of the token you want to convert FROM
   fromTokenContractAddress: '0x111111111117dC0aa78b770fA6A738034120C302',
   // the contract address of the token you want to convert TO
@@ -220,9 +220,9 @@ const uniswapPair = new SushiswapPair({
 });
 
 // now to create the factory you just do
-const uniswapPairFactory = await uniswapPair.createFactory();
+const sushiswapPairFactory = await sushiswapPair.createFactory();
 
-const toToken = uniswapPairFactory.toToken;
+const toToken = sushiswapPairFactory.toToken;
 console.log(toToken);
 // toToken:
 {
@@ -255,9 +255,9 @@ export interface Token {
 #### Usage
 
 ```ts
-import { SushiswapPair, ChainId } from 'simple-uniswap-sdk';
+import { SushiswapPair, ChainId } from 'simple-sushiswap-sdk';
 
-const uniswapPair = new SushiswapPair({
+const sushiswapPair = new SushiswapPair({
   // the contract address of the token you want to convert FROM
   fromTokenContractAddress: '0x111111111117dC0aa78b770fA6A738034120C302',
   // the contract address of the token you want to convert TO
@@ -270,9 +270,9 @@ const uniswapPair = new SushiswapPair({
 });
 
 // now to create the factory you just do
-const uniswapPairFactory = await uniswapPair.createFactory();
+const sushiswapPairFactory = await sushiswapPair.createFactory();
 
-const fromToken = uniswapPairFactory.fromToken;
+const fromToken = sushiswapPairFactory.fromToken;
 console.log(fromToken);
 // fromToken:
 {
@@ -288,7 +288,7 @@ console.log(fromToken);
 
 This will generate you the trade with all the information you need to show to the user on the dApp. It will find the best route price for you automatically. You will still need to send the transaction if they confirm the swap, we generate the transaction for you but you will still need to estimate the gas and get them to sign and send it on the dApp once they confirm the swap.
 
-It will also return a `hasEnoughAllowance` in the `TradeContext` trade response, if the allowance approved for moving tokens is below the amount sending to the uniswap router this will be false if not true. We still return the quote but if this is `false` you need to make sure you send the approval generated data first before being able to do the swap. We advise you check the allowance before you execute the trade which you should do anyway or it will fail onchain. You can use our `hasGotEnoughAllowance` method below to check and also our `generateApproveMaxAllowanceData` to generate the transaction for the user to appove moving of the tokens.
+It will also return a `hasEnoughAllowance` in the `TradeContext` trade response, if the allowance approved for moving tokens is below the amount sending to the sushiswap router this will be false if not true. We still return the quote but if this is `false` you need to make sure you send the approval generated data first before being able to do the swap. We advise you check the allowance before you execute the trade which you should do anyway or it will fail onchain. You can use our `hasGotEnoughAllowance` method below to check and also our `generateApproveMaxAllowanceData` to generate the transaction for the user to appove moving of the tokens.
 
 Please note `ROPSTEN`, `RINKEBY`, `GÖRLI` and `KOVAN` will only use `WETH` as a main currency unlike `MAINNET` which uses everything, so you will get less routes on those testnets.
 
@@ -304,7 +304,7 @@ export interface TradeContext {
   baseConvertRequest: string;
   // the min amount you will receive taking off the slippage
   // if the price changes below that then
-  // the uniswap contract will throw
+  // the sushiswap contract will throw
   // this will be formatted in readable number
   // so you can render straight out the box
   minAmountConvertQuote: string;
@@ -336,7 +336,7 @@ export interface TradeContext {
     routePathArray: string[];
   }[];
   // if the allowance approved for moving tokens is below the amount sending to the
-  // uniswap router this will be false if not true
+  // sushiswap router this will be false if not true
   // this is not reactive so if you get the trade quote
   // and this returns false but then you do the approval
   // transaction, this old context will still say false
@@ -369,7 +369,7 @@ export interface TradeContext {
   // this is a stream which emits if the quote has changed, this will emit
   // not matter what you should listen to this for the source of truth
   // for a reactive dApp. If you dont listen to this the user could end up
-  // sending a uniswap transaction which price is now out of date
+  // sending a sushiswap transaction which price is now out of date
   quoteChanged$: Observable<TradeContext>;
   // when you generate a trade it does more then just return data, it makes
   // sure your data stays in sync with the `quoteChanged$`, so once you have
@@ -405,9 +405,9 @@ export enum ChainId {
 #### ERC20 > ERC20
 
 ```ts
-import { SushiswapPair, ChainId, TradeContext } from 'simple-uniswap-sdk';
+import { SushiswapPair, ChainId, TradeContext } from 'simple-sushiswap-sdk';
 
-const uniswapPair = new SushiswapPair({
+const sushiswapPair = new SushiswapPair({
   // the contract address of the token you want to convert FROM
   fromTokenContractAddress: '0x111111111117dC0aa78b770fA6A738034120C302',
   // the contract address of the token you want to convert TO
@@ -420,12 +420,12 @@ const uniswapPair = new SushiswapPair({
 });
 
 // now to create the factory you just do
-const uniswapPairFactory = await uniswapPair.createFactory();
+const sushiswapPairFactory = await sushiswapPair.createFactory();
 
 // the amount is the proper entered amount
 // so if they enter 10 pass in 10
 // it will work it all out for you
-const trade = await uniswapPairFactory.trade('10');
+const trade = await sushiswapPairFactory.trade('10');
 
 // subscribe to quote changes
 trade.quoteChanged$.subscribe((value: TradeContext) => {
@@ -660,9 +660,9 @@ trade.destroy();
 #### ETH > ERC20
 
 ```ts
-import { SushiswapPair, WETH, ChainId, TradeContext } from 'simple-uniswap-sdk';
+import { SushiswapPair, WETH, ChainId, TradeContext } from 'simple-sushiswap-sdk';
 
-const uniswapPair = new SushiswapPair({
+const sushiswapPair = new SushiswapPair({
   // use the WETH import from the lib, bare in mind you should use the
   // network which yours on, so if your on rinkeby you should use
   // WETH.RINKEBY
@@ -677,12 +677,12 @@ const uniswapPair = new SushiswapPair({
 });
 
 // now to create the factory you just do
-const uniswapPairFactory = await uniswapPair.createFactory();
+const sushiswapPairFactory = await sushiswapPair.createFactory();
 
 // the amount is the proper entered amount
 // so if they enter 10 pass in 10 and
 // it will work it all out for you
-const trade = await uniswapPairFactory.trade('10');
+const trade = await sushiswapPairFactory.trade('10');
 
 
 // subscribe to quote changes
@@ -2029,9 +2029,9 @@ trade.destroy();
 #### ERC20 > ETH
 
 ```ts
-import { SushiswapPair, WETH, ChainId, TradeContext } from 'simple-uniswap-sdk';
+import { SushiswapPair, WETH, ChainId, TradeContext } from 'simple-sushiswap-sdk';
 
-const uniswapPair = new SushiswapPair({
+const sushiswapPair = new SushiswapPair({
   // the contract address of the token you want to convert FROM
   fromTokenContractAddress: '0x111111111117dC0aa78b770fA6A738034120C302',
   // use the WETH import from the lib, bare in mind you should use the
@@ -2046,12 +2046,12 @@ const uniswapPair = new SushiswapPair({
 });
 
 // now to create the factory you just do
-const uniswapPairFactory = await uniswapPair.createFactory();
+const sushiswapPairFactory = await sushiswapPair.createFactory();
 
 // the amount is the proper entered amount
 // so if they enter 10 pass in 10
 // it will work it all out for you
-const trade = await uniswapPairFactory.trade('10');
+const trade = await sushiswapPairFactory.trade('10');
 
 // subscribe to quote changes
 trade.quoteChanged$.subscribe((value: TradeContext) => {
@@ -3228,9 +3228,9 @@ async hasGotEnoughAllowance(amount: string): Promise<boolean>
 #### Usage
 
 ```ts
-import { SushiswapPair, ChainId } from 'simple-uniswap-sdk';
+import { SushiswapPair, ChainId } from 'simple-sushiswap-sdk';
 
-const uniswapPair = new SushiswapPair({
+const sushiswapPair = new SushiswapPair({
   // the contract address of the token you want to convert FROM
   fromTokenContractAddress: '0x1985365e9f78359a9B6AD760e32412f4a445E862',
   // the contract address of the token you want to convert TO
@@ -3243,9 +3243,9 @@ const uniswapPair = new SushiswapPair({
 });
 
 // now to create the factory you just do
-const uniswapPairFactory = await uniswapPair.createFactory();
+const sushiswapPairFactory = await sushiswapPair.createFactory();
 
-const hasGotEnoughAllowance = await uniswapPairFactory.hasGotEnoughAllowance(
+const hasGotEnoughAllowance = await sushiswapPairFactory.hasGotEnoughAllowance(
   '10'
 );
 console.log(hasGotEnoughAllowance);
@@ -3263,9 +3263,9 @@ async allowance(): Promise<string>
 #### Usage
 
 ```ts
-import { SushiswapPair, ChainId } from 'simple-uniswap-sdk';
+import { SushiswapPair, ChainId } from 'simple-sushiswap-sdk';
 
-const uniswapPair = new SushiswapPair({
+const sushiswapPair = new SushiswapPair({
   // the contract address of the token you want to convert FROM
   fromTokenContractAddress: '0x1985365e9f78359a9B6AD760e32412f4a445E862',
   // the contract address of the token you want to convert TO
@@ -3278,9 +3278,9 @@ const uniswapPair = new SushiswapPair({
 });
 
 // now to create the factory you just do
-const uniswapPairFactory = await uniswapPair.createFactory();
+const sushiswapPairFactory = await sushiswapPair.createFactory();
 
-const allowance = await uniswapPairFactory.allowance();
+const allowance = await sushiswapPairFactory.allowance();
 console.log(allowance);
 // '0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff';
 ```
@@ -3305,7 +3305,7 @@ export interface Transaction {
 #### Usage
 
 ```ts
-import { SushiswapPair, ChainId } from 'simple-uniswap-sdk';
+import { SushiswapPair, ChainId } from 'simple-sushiswap-sdk';
 
 // the contract address of the token you want to convert FROM
 const fromTokenContractAddress = '0x1985365e9f78359a9B6AD760e32412f4a445E862';
@@ -3314,7 +3314,7 @@ const toTokenContractAddress = '0x111111111117dC0aa78b770fA6A738034120C302';
 // the ethereum address of the user using this part of the dApp
 const ethereumAddress = '0xB1E6079212888f0bE0cf55874B2EB9d7a5e02cD9';
 
-const uniswapPair = new SushiswapPair({
+const sushiswapPair = new SushiswapPair({
   // the contract address of the token you want to convert FROM
   fromTokenContractAddress: '0x1985365e9f78359a9B6AD760e32412f4a445E862',
   // the contract address of the token you want to convert TO
@@ -3327,9 +3327,9 @@ const uniswapPair = new SushiswapPair({
 });
 
 // now to create the factory you just do
-const uniswapPairFactory = await uniswapPair.createFactory();
+const sushiswapPairFactory = await sushiswapPair.createFactory();
 
-const transaction = await uniswapPairFactory.generateApproveMaxAllowanceData();
+const transaction = await sushiswapPairFactory.generateApproveMaxAllowanceData();
 console.log(transaction);
 {
   to: '0x111111111117dC0aa78b770fA6A738034120C302',
@@ -3351,9 +3351,9 @@ async findBestRoute(amountToTrade: string): Promise<RouteQuote>
 #### Usage
 
 ```ts
-import { SushiswapPair, ChainId } from 'simple-uniswap-sdk';
+import { SushiswapPair, ChainId } from 'simple-sushiswap-sdk';
 
-const uniswapPair = new SushiswapPair({
+const sushiswapPair = new SushiswapPair({
   // the contract address of the token you want to convert FROM
   fromTokenContractAddress: '0x1985365e9f78359a9B6AD760e32412f4a445E862',
   // the contract address of the token you want to convert TO
@@ -3366,9 +3366,9 @@ const uniswapPair = new SushiswapPair({
 });
 
 // now to create the factory you just do
-const uniswapPairFactory = await uniswapPair.createFactory();
+const sushiswapPairFactory = await sushiswapPair.createFactory();
 
-const bestRoute = await uniswapPairFactory.findBestRoute('10');
+const bestRoute = await sushiswapPairFactory.findBestRoute('10');
 console.log(bestRoute);
 {
   expectedConvertQuote: "0.014634280991384697",
@@ -3417,9 +3417,9 @@ async findAllPossibleRoutesWithQuote(amountToTrade: string): Promise<RouteQuote[
 #### Usage
 
 ```ts
-import { SushiswapPair, ChainId } from 'simple-uniswap-sdk';
+import { SushiswapPair, ChainId } from 'simple-sushiswap-sdk';
 
-const uniswapPair = new SushiswapPair({
+const sushiswapPair = new SushiswapPair({
   // the contract address of the token you want to convert FROM
   fromTokenContractAddress: '0x111111111117dC0aa78b770fA6A738034120C302',
   // the contract address of the token you want to convert TO
@@ -3432,9 +3432,9 @@ const uniswapPair = new SushiswapPair({
 });
 
 // now to create the factory you just do
-const uniswapPairFactory = await uniswapPair.createFactory();
+const sushiswapPairFactory = await sushiswapPair.createFactory();
 
-const allPossibleRoutes = await uniswapPairFactory.findAllPossibleRoutesWithQuote(
+const allPossibleRoutes = await sushiswapPairFactory.findAllPossibleRoutesWithQuote(
   '10'
 );
 console.log(allPossibleRoutes);
@@ -3615,9 +3615,9 @@ export interface Token {
 #### Usage
 
 ```ts
-import { SushiswapPair, ChainId } from 'simple-uniswap-sdk';
+import { SushiswapPair, ChainId } from 'simple-sushiswap-sdk';
 
-const uniswapPair = new SushiswapPair({
+const sushiswapPair = new SushiswapPair({
   // the contract address of the token you want to convert FROM
   fromTokenContractAddress: '0x1985365e9f78359a9B6AD760e32412f4a445E862',
   // the contract address of the token you want to convert TO
@@ -3630,9 +3630,9 @@ const uniswapPair = new SushiswapPair({
 });
 
 // now to create the factory you just do
-const uniswapPairFactory = await uniswapPair.createFactory();
+const sushiswapPairFactory = await sushiswapPair.createFactory();
 
-const allRoutes = await uniswapPairFactory.findAllPossibleRoutes();
+const allRoutes = await sushiswapPairFactory.findAllPossibleRoutes();
 console.log(allRoutes);
 [
   [
@@ -3776,7 +3776,7 @@ export interface Token {
 #### Usage
 
 ```ts
-import { TokenFactoryPublic, ChainId } from 'simple-uniswap-sdk';
+import { TokenFactoryPublic, ChainId } from 'simple-sushiswap-sdk';
 
 const tokenContractAddress = '0x111111111117dC0aa78b770fA6A738034120C302';
 
@@ -3807,7 +3807,7 @@ async allowance(ethereumAddress: string): Promise<string>
 #### Usage
 
 ```ts
-import { TokenFactoryPublic, ChainId } from 'simple-uniswap-sdk';
+import { TokenFactoryPublic, ChainId } from 'simple-sushiswap-sdk';
 
 const tokenContractAddress = '0x111111111117dC0aa78b770fA6A738034120C302';
 
@@ -3834,7 +3834,7 @@ async balanceOf(ethereumAddress: string): Promise<string>
 #### Usage
 
 ```ts
-import { TokenFactoryPublic, ChainId } from 'simple-uniswap-sdk';
+import { TokenFactoryPublic, ChainId } from 'simple-sushiswap-sdk';
 
 const tokenContractAddress = '0x111111111117dC0aa78b770fA6A738034120C302';
 
@@ -3861,7 +3861,7 @@ async totalSupply(): Promise<string>
 #### Usage
 
 ```ts
-import { TokenFactoryPublic, ChainId } from 'simple-uniswap-sdk';
+import { TokenFactoryPublic, ChainId } from 'simple-sushiswap-sdk';
 
 const tokenContractAddress = '0x111111111117dC0aa78b770fA6A738034120C302';
 
@@ -3888,7 +3888,7 @@ generateApproveAllowanceData(spender: string, value: string): string
 #### Usage
 
 ```ts
-import { TokenFactoryPublic, ChainId } from 'simple-uniswap-sdk';
+import { TokenFactoryPublic, ChainId } from 'simple-sushiswap-sdk';
 
 const tokenContractAddress = '0x111111111117dC0aa78b770fA6A738034120C302';
 
@@ -3932,7 +3932,7 @@ export interface AllowanceAndBalanceOf {
 #### Usage
 
 ```ts
-import { TokenFactoryPublic, ChainId } from 'simple-uniswap-sdk';
+import { TokenFactoryPublic, ChainId } from 'simple-sushiswap-sdk';
 
 const tokenContractAddress = '0x111111111117dC0aa78b770fA6A738034120C302';
 
@@ -3980,7 +3980,7 @@ export interface Token {
 #### Usage
 
 ```ts
-import { TokensFactoryPublic, ChainId } from 'simple-uniswap-sdk';
+import { TokensFactoryPublic, ChainId } from 'simple-sushiswap-sdk';
 
 const tokensFactoryPublic = new TokensFactoryPublic(
   ChainId.MAINNET
@@ -4013,7 +4013,7 @@ console.log(tokens);
 
 ### Contract calls
 
-Along side this we also expose in here the uniswap pair contract calls. Any methods which are state changing will return you the data and you will have to send it. Only use these if your doing any bespoke stuff with pairs. The `SushiswapPairContractFactoryPublic` is also exposed in the package which you can pass it a chainId or a providerUrl
+Along side this we also expose in here the sushiswap pair contract calls. Any methods which are state changing will return you the data and you will have to send it. Only use these if your doing any bespoke stuff with pairs. The `SushiswapPairContractFactoryPublic` is also exposed in the package which you can pass it a chainId or a providerUrl
 
 ```ts
 export interface SushiswapPair {
@@ -4054,7 +4054,7 @@ export interface SushiswapPair {
 #### In SushiswapPairFactory
 
 ```ts
-import { SushiswapPair, ChainId } from 'simple-uniswap-sdk';
+import { SushiswapPair, ChainId } from 'simple-sushiswap-sdk';
 
 // the contract address of the token you want to convert FROM
 const fromTokenContractAddress = '0x1985365e9f78359a9B6AD760e32412f4a445E862';
@@ -4063,7 +4063,7 @@ const toTokenContractAddress = '0x111111111117dC0aa78b770fA6A738034120C302';
 // the ethereum address of the user using this part of the dApp
 const ethereumAddress = '0xB1E6079212888f0bE0cf55874B2EB9d7a5e02cD9';
 
-const uniswapPair = new SushiswapPair(
+const sushiswapPair = new SushiswapPair(
   toTokenContractAddress,
   fromTokenContractAddress,
   ethereumAddress,
@@ -4073,10 +4073,10 @@ const uniswapPair = new SushiswapPair(
 );
 
 // now to create the factory you just do
-const uniswapPairFactory = await uniswapPair.createFactory();
+const sushiswapPairFactory = await sushiswapPair.createFactory();
 
-// contract calls our here, this is only for the uniswap pair contract https://etherscan.io/address/0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac#code
-uniswapPairFactory.contractCalls;
+// contract calls our here, this is only for the sushiswap pair contract https://etherscan.io/address/0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac#code
+sushiswapPairFactory.contractCalls;
 ```
 
 #### Using SushiswapPairContractFactoryPublic on its own
@@ -4085,16 +4085,16 @@ uniswapPairFactory.contractCalls;
 import {
   SushiswapPairContractFactoryPublic,
   ChainId,
-} from 'simple-uniswap-sdk';
+} from 'simple-sushiswap-sdk';
 
-const uniswapPairContractFactoryPublic = new SushiswapPairContractFactoryPublic(
+const sushiswapPairContractFactoryPublic = new SushiswapPairContractFactoryPublic(
   ChainId.MAINNET
   // you can pass in the provider url as well if you want
   // providerUrl: YOUR_PROVIDER_URL,
 );
 
-// contract calls our here, this is only for the uniswap pair contract https://etherscan.io/address/0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac#code
-uniswapPairContractFactoryPublic;
+// contract calls our here, this is only for the sushiswap pair contract https://etherscan.io/address/0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac#code
+sushiswapPairContractFactoryPublic;
 ```
 
 ### SushiswapContractFactoryPublic
@@ -4113,16 +4113,16 @@ async getPair(token0: string, token1: string): Promise<string>;
 ### Usage
 
 ```ts
-import { SushiswapContractFactoryPublic, ChainId } from 'simple-uniswap-sdk';
+import { SushiswapContractFactoryPublic, ChainId } from 'simple-sushiswap-sdk';
 
-const uniswapContractFactoryPublic = new SushiswapContractFactoryPublic(
+const sushiswapContractFactoryPublic = new SushiswapContractFactoryPublic(
   ChainId.MAINNET
   // you can pass in the provider url as well if you want
   // providerUrl: YOUR_PROVIDER_URL,
 );
 
 // contract calls our here https://etherscan.io/address/0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac#code
-uniswapContractFactoryPublic;
+sushiswapContractFactoryPublic;
 ```
 
 ### SushiswapRouterContractFactoryPublic
@@ -4323,16 +4323,16 @@ swapExactTokensForTokensSupportingFeeOnTransferTokens(
 import {
   SushiswapRouterContractFactoryPublic,
   ChainId,
-} from 'simple-uniswap-sdk';
+} from 'simple-sushiswap-sdk';
 
-const uniswapRouterContractFactoryPublic = new SushiswapRouterContractFactoryPublic(
+const sushiswapRouterContractFactoryPublic = new SushiswapRouterContractFactoryPublic(
   ChainId.MAINNET
   // you can pass in the provider url as well if you want
   // providerUrl: YOUR_PROVIDER_URL,
 );
 
 // contract calls our here https://etherscan.io/address/0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F#code
-uniswapRouterContractFactoryPublic;
+sushiswapRouterContractFactoryPublic;
 ```
 
 ## Tests
@@ -4349,7 +4349,7 @@ Ran all test suites.
 
 Please raise any issues in the below link.
 
-https://github.com/joshstevens19/simple-uniswap-sdk
+https://github.com/joshstevens19/simple-sushiswap-sdk
 
 ## Thanks
 
