@@ -1,7 +1,7 @@
 {
   "name": "simple-uniswap-bsc-sdk",
   "version": "1.0.1",
-  "description": "Simple easy to understand SDK adapted for BSC",
+  "description": "Simple easy to understand SDK adapted for BSC!",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joshstevens19/simple-uniswap-sdk.git"
+    "url": "git+https://github.com/devgoeth/simple-uniswap-bsc-sdk.git"
   },
   "author": "",
   "license": "ISC",
@@ -26,9 +26,9 @@
     "binance"
   ],
   "bugs": {
-    "url": "https://github.com/joshstevens19/simple-uniswap-sdk/issues"
+    "url": "https://github.com/devgoeth/simple-uniswap-bsc-sdk/issues"
   },
-  "homepage": "https://github.com/joshstevens19/simple-uniswap-sdk#readme",
+  "homepage": "https://github.com/devgoeth/simple-uniswap-bsc-sdk#readme",
   "dependencies": {
     "bignumber.js": "^9.0.1",
     "ethereum-multicall": "^2.0.1",
