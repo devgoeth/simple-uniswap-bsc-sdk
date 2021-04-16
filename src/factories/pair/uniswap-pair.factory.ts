@@ -1,7 +1,6 @@
 import BigNumber from 'bignumber.js';
 import { Subject } from 'rxjs';
 import { Constants } from '../../common/constants';
-import { ContractContext } from '../../common/contract-context';
 import { ErrorCodes } from '../../common/errors/error-codes';
 import { UniswapError } from '../../common/errors/uniswap-error';
 import { hexlify } from '../../common/utils/hexlify';
@@ -285,7 +284,7 @@ export class UniswapPairFactory {
     }
 
     const data = this._fromTokenFactory.generateApproveAllowanceData(
-      ContractContext.routerAddress,
+      this._uniswapPairFactoryContext.ethersProvider.customContractContext.routerAddress,
       '0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff'
     );
 
@@ -592,7 +591,7 @@ export class UniswapPairFactory {
    */
   private buildUpTransactionErc20(data: string): Transaction {
     return {
-      to: ContractContext.routerAddress,
+      to: this._uniswapPairFactoryContext.ethersProvider.customContractContext.routerAddress ,
       from: this._uniswapPairFactoryContext.ethereumAddress,
       data,
       value: Constants.EMPTY_HEX_STRING,
@@ -609,7 +608,7 @@ export class UniswapPairFactory {
     data: string
   ): Transaction {
     return {
-      to: ContractContext.routerAddress,
+      to: this._uniswapPairFactoryContext.ethersProvider.customContractContext.routerAddress,
       from: this._uniswapPairFactoryContext.ethereumAddress,
       data,
       value: toEthersBigNumber(parseEther(ethValue)).toHexString(),

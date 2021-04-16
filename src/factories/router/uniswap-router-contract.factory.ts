@@ -6,7 +6,7 @@ import { EthersProvider } from '../../ethers-provider';
 export class UniswapRouterContractFactory {
   private _uniswapRouterContract = this._ethersProvider.getContract<RouterContractContext>(
     JSON.stringify(ContractContext.routerAbi),
-    ContractContext.routerAddress
+    this._ethersProvider.customContractContext.routerAddress
   );
 
   constructor(private _ethersProvider: EthersProvider) {}

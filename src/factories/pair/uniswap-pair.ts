@@ -64,12 +64,26 @@ export class UniswapPair {
     const chainId = (<UniswapPairContextForChainId>this._uniswapPairContext)
       .chainId;
 
+    const customContractContext = (<UniswapPairContextForProviderUrl>(
+        this._uniswapPairContext
+    )).customContractContext;
+
     const providerUrl = (<UniswapPairContextForProviderUrl>(
       this._uniswapPairContext
     )).providerUrl;
 
-    if (providerUrl && chainId) {
+    if (providerUrl && chainId &&  customContractContext) {
+      this._ethersProvider = new EthersProvider(chainId, providerUrl, customContractContext);
+      return;
+    }
+
+    if (providerUrl && chainId && !customContractContext) {
       this._ethersProvider = new EthersProvider(chainId, providerUrl);
+      return;
+    }
+
+    if (!providerUrl && chainId &&  customContractContext) {
+      this._ethersProvider = new EthersProvider(chainId, undefined, customContractContext);
       return;
     }
 

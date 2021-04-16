@@ -1,12 +1,21 @@
 import { Contract, ContractInterface } from '@ethersproject-bsc/contracts';
+import { ContractContext, CustomContractContext } from './common/contract-context';
 import * as providers from '@ethersproject-bsc/providers';
 import { ErrorCodes } from './common/errors/error-codes';
 import { UniswapError } from './common/errors/uniswap-error';
 import { ChainId, ChainNames } from './enums/chain-id';
 
 export class EthersProvider {
-  private _ethersProvider: providers.BaseProvider;
-  constructor(chainId: ChainId, providerUrl?: string | undefined) {
+  public customContractContext: CustomContractContext;
+  private readonly _ethersProvider: providers.BaseProvider;
+  constructor(chainId: ChainId, providerUrl?: string | undefined, customContractContext?: CustomContractContext | undefined) {
+    const defaultContractContext = {
+      "routerAddress": ContractContext.routerAddress,
+      "factoryAddress": ContractContext.factoryAddress,
+      "pairAddress": ContractContext.pairAddress
+    };
+    this.customContractContext = customContractContext ?? defaultContractContext;
+
     if (providerUrl) {
       const chainName = ChainNames.get(chainId);
       if (!chainName) {

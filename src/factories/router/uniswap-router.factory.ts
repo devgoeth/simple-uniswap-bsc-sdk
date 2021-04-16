@@ -64,7 +64,7 @@ export class UniswapRouterFactory {
 
     const contractCallContext: ContractCallContext = {
       reference: 'uniswap-pairs',
-      contractAddress: ContractContext.pairAddress,
+      contractAddress: this._ethersProvider.customContractContext.pairAddress,
       abi: ContractContext.pairAbi,
       calls: [],
     };
@@ -156,7 +156,7 @@ export class UniswapRouterFactory {
 
     const contractCallContext: ContractCallContext<Token[][]> = {
       reference: 'uniswap-route-quotes',
-      contractAddress: ContractContext.routerAddress,
+      contractAddress: this._ethersProvider.customContractContext.routerAddress,
       abi: ContractContext.routerAbi,
       calls: [],
       context: routes,

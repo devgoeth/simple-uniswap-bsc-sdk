@@ -4,12 +4,18 @@ import { ContractContext } from '../../common/contract-context';
 import { EthersProvider } from '../../ethers-provider';
 
 export class UniswapContractFactory {
+
   private _uniswapFactoryContract = this._ethersProvider.getContract<FactoryContractContext>(
     JSON.stringify(ContractContext.factoryAbi),
-    ContractContext.factoryAddress
+      this._ethersProvider.customContractContext.factoryAddress
   );
 
-  constructor(private _ethersProvider: EthersProvider) {}
+  constructor(private _ethersProvider: EthersProvider) {
+    this._uniswapFactoryContract = this._ethersProvider.getContract<FactoryContractContext>(
+        JSON.stringify(ContractContext.factoryAbi),
+        this._ethersProvider.customContractContext.factoryAddress
+    );
+  }
 
   public async allPairs(parameter0: BigNumberish): Promise<string> {
     return await this._uniswapFactoryContract.allPairs(parameter0);

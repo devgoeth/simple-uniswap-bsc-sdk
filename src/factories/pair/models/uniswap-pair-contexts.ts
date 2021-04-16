@@ -1,5 +1,6 @@
 import { ChainId } from '../../../enums/chain-id';
 import { UniswapPairSettings } from './uniswap-pair-settings';
+import { CustomContractContext } from './../../../common/contract-context';
 
 interface UniswapPairContextBase {
   fromTokenContractAddress: string;
@@ -15,4 +16,5 @@ export interface UniswapPairContextForChainId extends UniswapPairContextBase {
 export interface UniswapPairContextForProviderUrl
   extends UniswapPairContextForChainId {
   providerUrl: string;
+  customContractContext: CustomContractContext;
 }
