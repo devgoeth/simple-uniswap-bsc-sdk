@@ -10,9 +10,9 @@ export class EthersProvider {
   private readonly _ethersProvider: providers.BaseProvider;
   constructor(chainId: ChainId, providerUrl?: string | undefined, customContractContext?: CustomContractContext | undefined) {
     const defaultContractContext = {
-      "routerAddress": ContractContext.routerAddress,
-      "factoryAddress": ContractContext.factoryAddress,
-      "pairAddress": ContractContext.pairAddress
+      routerAddress: ContractContext.routerAddress,
+      factoryAddress: ContractContext.factoryAddress,
+      pairAddress: ContractContext.pairAddress
     };
     this.customContractContext = customContractContext ?? defaultContractContext;
 

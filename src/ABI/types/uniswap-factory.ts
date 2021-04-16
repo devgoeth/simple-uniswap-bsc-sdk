@@ -1,1 +1,163 @@
-[{"inputs":[{"internalType":"address","name":"_feeToSetter","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"token0","type":"address"},{"indexed":true,"internalType":"address","name":"token1","type":"address"},{"indexed":false,"internalType":"address","name":"pair","type":"address"},{"indexed":false,"internalType":"uint256","name":"","type":"uint256"}],"name":"PairCreated","type":"event"},{"constant":true,"inputs":[],"name":"INIT_CODE_PAIR_HASH","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"allPairs","outputs":[{"internalType":"address","name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"allPairsLength","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"tokenA","type":"address"},{"internalType":"address","name":"tokenB","type":"address"}],"name":"createPair","outputs":[{"internalType":"address","name":"pair","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"feeTo","outputs":[{"internalType":"address","name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"feeToSetter","outputs":[{"internalType":"address","name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"address","name":"","type":"address"}],"name":"getPair","outputs":[{"internalType":"address","name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"_feeTo","type":"address"}],"name":"setFeeTo","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"_feeToSetter","type":"address"}],"name":"setFeeToSetter","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
+import {
+    ContractTransaction,
+    ContractInterface,
+    BytesLike as Arrayish,
+    BigNumber,
+    BigNumberish,
+} from 'ethers';
+import { EthersContractContextV5 } from 'ethereum-abi-types-generator';
+
+export type ContractContext = EthersContractContextV5<
+    UniswapFactory,
+    UniswapFactoryMethodNames,
+    UniswapFactoryEventsContext,
+    UniswapFactoryEvents
+    >;
+
+export declare type EventFilter = {
+    address?: string;
+    topics?: Array<string>;
+    fromBlock?: string | number;
+    toBlock?: string | number;
+};
+
+export interface ContractTransactionOverrides {
+    /**
+     * The maximum units of gas for the transaction to use
+     */
+    gasLimit?: number;
+    /**
+     * The price (in wei) per unit of gas
+     */
+    gasPrice?: BigNumber | string | number | Promise<any>;
+    /**
+     * The nonce to use in the transaction
+     */
+    nonce?: number;
+    /**
+     * The amount to send with the transaction (i.e. msg.value)
+     */
+    value?: BigNumber | string | number | Promise<any>;
+    /**
+     * The chain ID (or network ID) to use
+     */
+    chainId?: number;
+}
+
+export interface ContractCallOverrides {
+    /**
+     * The address to execute the call as
+     */
+    from?: string;
+    /**
+     * The maximum units of gas for the transaction to use
+     */
+    gasLimit?: number;
+}
+export type UniswapFactoryEvents = 'PairCreated';
+export interface UniswapFactoryEventsContext {
+    PairCreated(...parameters: any): EventFilter;
+}
+export type UniswapFactoryMethodNames =
+    | 'new'
+    | 'allPairs'
+    | 'allPairsLength'
+    | 'createPair'
+    | 'feeTo'
+    | 'feeToSetter'
+    | 'getPair'
+    | 'setFeeTo'
+    | 'setFeeToSetter';
+export interface UniswapFactory {
+    /**
+     * Payable: false
+     * Constant: false
+     * StateMutability: nonpayable
+     * Type: constructor
+     * @param _feeToSetter Type: address, Indexed: false
+     */
+    'new'(
+        _feeToSetter: string,
+        overrides?: ContractTransactionOverrides
+    ): Promise<ContractTransaction>;
+    /**
+     * Payable: false
+     * Constant: true
+     * StateMutability: view
+     * Type: function
+     * @param parameter0 Type: uint256, Indexed: false
+     */
+    allPairs(
+        parameter0: BigNumberish,
+        overrides?: ContractCallOverrides
+    ): Promise<string>;
+    /**
+     * Payable: false
+     * Constant: true
+     * StateMutability: view
+     * Type: function
+     */
+    allPairsLength(overrides?: ContractCallOverrides): Promise<BigNumber>;
+    /**
+     * Payable: false
+     * Constant: false
+     * StateMutability: nonpayable
+     * Type: function
+     * @param tokenA Type: address, Indexed: false
+     * @param tokenB Type: address, Indexed: false
+     */
+    createPair(
+        tokenA: string,
+        tokenB: string,
+        overrides?: ContractTransactionOverrides
+    ): Promise<ContractTransaction>;
+    /**
+     * Payable: false
+     * Constant: true
+     * StateMutability: view
+     * Type: function
+     */
+    feeTo(overrides?: ContractCallOverrides): Promise<string>;
+    /**
+     * Payable: false
+     * Constant: true
+     * StateMutability: view
+     * Type: function
+     */
+    feeToSetter(overrides?: ContractCallOverrides): Promise<string>;
+    /**
+     * Payable: false
+     * Constant: true
+     * StateMutability: view
+     * Type: function
+     * @param parameter0 Type: address, Indexed: false
+     * @param parameter1 Type: address, Indexed: false
+     */
+    getPair(
+        parameter0: string,
+        parameter1: string,
+        overrides?: ContractCallOverrides
+    ): Promise<string>;
+    /**
+     * Payable: false
+     * Constant: false
+     * StateMutability: nonpayable
+     * Type: function
+     * @param _feeTo Type: address, Indexed: false
+     */
+    setFeeTo(
+        _feeTo: string,
+        overrides?: ContractTransactionOverrides
+    ): Promise<ContractTransaction>;
+    /**
+     * Payable: false
+     * Constant: false
+     * StateMutability: nonpayable
+     * Type: function
+     * @param _feeToSetter Type: address, Indexed: false
+     */
+    setFeeToSetter(
+        _feeToSetter: string,
+        overrides?: ContractTransactionOverrides
+    ): Promise<ContractTransaction>;
+}
