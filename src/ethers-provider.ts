@@ -6,15 +6,15 @@ import { UniswapError } from './common/errors/uniswap-error';
 import { ChainId, ChainNames } from './enums/chain-id';
 
 export class EthersProvider {
-  public customContractContext: CustomContractContext;
+  public contractContext: CustomContractContext;
   private readonly _ethersProvider: providers.BaseProvider;
-  constructor(chainId: ChainId, providerUrl?: string | undefined, customContractContext?: CustomContractContext | undefined) {
+  constructor(chainId: ChainId, providerUrl?: string | undefined, contractContext?: CustomContractContext | undefined) {
     const defaultContractContext = {
       routerAddress: ContractContext.routerAddress,
       factoryAddress: ContractContext.factoryAddress,
       pairAddress: ContractContext.pairAddress
     };
-    this.customContractContext = customContractContext ?? defaultContractContext;
+    this.contractContext = contractContext ?? defaultContractContext;
 
     if (providerUrl) {
       const chainName = ChainNames.get(chainId);

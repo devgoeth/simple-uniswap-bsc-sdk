@@ -16,5 +16,5 @@ export interface UniswapPairContextForChainId extends UniswapPairContextBase {
 export interface UniswapPairContextForProviderUrl
   extends UniswapPairContextForChainId {
   providerUrl: string;
-  customContractContext: CustomContractContext;
+  contractContext: CustomContractContext;
 }

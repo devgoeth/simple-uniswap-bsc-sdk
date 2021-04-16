@@ -284,7 +284,7 @@ export class UniswapPairFactory {
     }
 
     const data = this._fromTokenFactory.generateApproveAllowanceData(
-      this._uniswapPairFactoryContext.ethersProvider.customContractContext.routerAddress,
+      this._uniswapPairFactoryContext.ethersProvider.contractContext.routerAddress,
       '0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff'
     );
 
@@ -591,7 +591,7 @@ export class UniswapPairFactory {
    */
   private buildUpTransactionErc20(data: string): Transaction {
     return {
-      to: this._uniswapPairFactoryContext.ethersProvider.customContractContext.routerAddress ,
+      to: this._uniswapPairFactoryContext.ethersProvider.contractContext.routerAddress ,
       from: this._uniswapPairFactoryContext.ethereumAddress,
       data,
       value: Constants.EMPTY_HEX_STRING,
@@ -608,7 +608,7 @@ export class UniswapPairFactory {
     data: string
   ): Transaction {
     return {
-      to: this._uniswapPairFactoryContext.ethersProvider.customContractContext.routerAddress,
+      to: this._uniswapPairFactoryContext.ethersProvider.contractContext.routerAddress,
       from: this._uniswapPairFactoryContext.ethereumAddress,
       data,
       value: toEthersBigNumber(parseEther(ethValue)).toHexString(),

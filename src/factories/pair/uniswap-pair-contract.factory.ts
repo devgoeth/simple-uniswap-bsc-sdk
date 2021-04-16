@@ -6,7 +6,7 @@ import { EthersProvider } from '../../ethers-provider';
 export class UniswapPairContractFactory {
   private _uniswapPairFactory = this._ethersProvider.getContract<PairContractContext>(
     JSON.stringify(ContractContext.pairAbi),
-    this._ethersProvider.customContractContext.pairAddress
+    this._ethersProvider.contractContext.pairAddress
   );
 
   constructor(private _ethersProvider: EthersProvider) {}

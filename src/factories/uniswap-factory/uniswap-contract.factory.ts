@@ -7,13 +7,13 @@ export class UniswapContractFactory {
 
   private _uniswapFactoryContract = this._ethersProvider.getContract<FactoryContractContext>(
     JSON.stringify(ContractContext.factoryAbi),
-      this._ethersProvider.customContractContext.factoryAddress
+      this._ethersProvider.contractContext.factoryAddress
   );
 
   constructor(private _ethersProvider: EthersProvider) {
     this._uniswapFactoryContract = this._ethersProvider.getContract<FactoryContractContext>(
         JSON.stringify(ContractContext.factoryAbi),
-        this._ethersProvider.customContractContext.factoryAddress
+        this._ethersProvider.contractContext.factoryAddress
     );
   }
 
