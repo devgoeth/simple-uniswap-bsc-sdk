@@ -1,6 +1,6 @@
 {
   "name": "simple-uniswap-bsc-sdk",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Simple easy to understand SDK adapted for BSC!",
   "main": "dist/index.js",
   "scripts": {
