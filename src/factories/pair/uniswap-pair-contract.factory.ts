@@ -40,6 +40,17 @@ export class UniswapPairContractFactory {
   ): Promise<string> {
     return await this._uniswapPairFactory.getPair(parameter0, parameter1);
   }
+  public async getReserves(
+      parameter0: string,
+      parameter1: string
+  ): Promise<string> {
+    const pair = await this._uniswapPairFactory.getPair(parameter0, parameter1);
+    const contractPair = this._ethersProvider.getContract<PairContractContext>(
+        JSON.stringify(ContractContext.exactpPairAbi),
+        pair
+    )
+    return await contractPair.getReserves();
+  }
 
   public async setFeeTo(_feeTo: string): Promise<string> {
     return this._uniswapPairFactory.interface.encodeFunctionData('setFeeTo', [

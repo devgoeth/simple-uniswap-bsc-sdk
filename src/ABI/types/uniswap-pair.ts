@@ -67,7 +67,8 @@ export type UniswapPairMethodNames =
   | 'feeToSetter'
   | 'getPair'
   | 'setFeeTo'
-  | 'setFeeToSetter';
+  | 'setFeeToSetter'
+  | 'getReserves';
 export interface UniswapPair {
   /**
    * Payable: false
@@ -160,4 +161,12 @@ export interface UniswapPair {
     _feeToSetter: string,
     overrides?: ContractTransactionOverrides
   ): Promise<ContractTransaction>;
+
+  /**
+   * Payable: false
+   * Constant: false
+   * StateMutability: nonpayable
+   * Type: function
+   */
+  getReserves(): Promise<string>;
 }

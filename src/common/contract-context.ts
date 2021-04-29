@@ -32,6 +32,10 @@ export class ContractContext {
   public static pairAbi: JsonFragment[] = require('../ABI/uniswap-pair-v2.json');
 
   /**
+   * Uniswap v2 exact  pair
+   */
+  public static exactpPairAbi: JsonFragment[] = require('../ABI/uniswap-exact-pair-v2.json');
+  /**
    * ERC20 abi
    */
   public static erc20Abi: JsonFragment[] = require('../ABI/erc-20-abi.json');
