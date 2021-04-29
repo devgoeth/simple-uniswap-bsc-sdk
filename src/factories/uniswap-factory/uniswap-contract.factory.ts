@@ -36,6 +36,10 @@ export class UniswapContractFactory {
     return await this._uniswapFactoryContract.getPair(token0, token1);
   }
 
+  public async getReserves(): Promise<string> {
+    return await this._uniswapFactoryContract.getReserves();
+  }
+
   public async feeTo(): Promise<string> {
     return await this._uniswapFactoryContract.feeTo();
   }
