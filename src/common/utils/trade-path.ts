@@ -8,11 +8,11 @@ export function getTradePath(
   fromToken: Token,
   toToken: Token
 ): TradePath {
-  if (fromToken.contractAddress === WETH.token(chainId).contractAddress) {
+  if (fromToken.contractAddress.toLowerCase() === WETH.token(chainId).contractAddress.toLowerCase()) {
     return TradePath.ethToErc20;
   }
 
-  if (toToken.contractAddress === WETH.token(chainId).contractAddress) {
+  if (toToken.contractAddress.toLowerCase() === WETH.token(chainId).contractAddress.toLowerCase()) {
     return TradePath.erc20ToEth;
   }
 
