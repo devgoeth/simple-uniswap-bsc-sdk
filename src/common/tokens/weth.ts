@@ -10,7 +10,7 @@ export class WETH {
   public static MAINNET(): Token {
     return {
       chainId: ChainId.MAINNET,
-      contractAddress: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
+      contractAddress: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
       decimals: 18,
       symbol: 'WBNB',
       name: 'Wrapped Binance',

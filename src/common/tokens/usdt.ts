@@ -9,7 +9,7 @@ export class USDT {
   public static MAINNET() {
     return {
       chainId: ChainId.MAINNET,
-      contractAddress: '0x55d398326f99059ff775485246999027b3197955',
+      contractAddress: '0x55d398326f99059fF775485246999027B3197955',
       decimals: 18,
       symbol: 'USDT',
       name: 'Tether USD',

@@ -9,7 +9,7 @@ export class COMP {
   public static MAINNET() {
     return {
       chainId: ChainId.MAINNET,
-      contractAddress: '0x52ce071bd9b1c4b00a0b92d298c512478cad67e8',
+      contractAddress: '0x52CE071Bd9b1C4B00A0b92D298c512478CaD67e8',
       decimals: 18,
       symbol: 'COMP',
       name: 'Compound',

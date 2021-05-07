@@ -168,5 +168,7 @@ export interface UniswapPair {
    * StateMutability: nonpayable
    * Type: function
    */
-  getReserves(): Promise<string>;
+  getReserves(
+      overrides?: ContractCallOverrides
+  ): Promise<string>;
 }
