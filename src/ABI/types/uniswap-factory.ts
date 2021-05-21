@@ -169,5 +169,23 @@ export interface UniswapFactory {
      * Type: function
      */
     getReserves(
+    ): Promise<any[]>;
+
+    /**
+     * Payable: false
+     * Constant: true
+     * StateMutability: view
+     * Type: function
+     */
+    token0(
+    ): Promise<string>;
+
+    /**
+     * Payable: false
+     * Constant: true
+     * StateMutability: view
+     * Type: function
+     */
+    token1(
     ): Promise<string>;
 }

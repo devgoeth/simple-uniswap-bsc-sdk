@@ -170,5 +170,24 @@ export interface UniswapPair {
    */
   getReserves(
       overrides?: ContractCallOverrides
+  ): Promise<any[]>;
+
+  /**
+   * Payable: false
+   * Constant: false
+   * StateMutability: nonpayable
+   * Type: function
+   */
+  token0(
+      overrides?: ContractCallOverrides
+  ): Promise<string>;
+  /**
+   * Payable: false
+   * Constant: false
+   * StateMutability: nonpayable
+   * Type: function
+   */
+  token1(
+      overrides?: ContractCallOverrides
   ): Promise<string>;
 }

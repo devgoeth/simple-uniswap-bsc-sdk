@@ -43,13 +43,16 @@ export class UniswapPairContractFactory {
   public async getReserves(
       parameter0: string,
       parameter1: string
-  ): Promise<string> {
+  ): Promise<any[]> {
     const pair = await this._uniswapPairFactory.getPair(parameter0, parameter1);
     const contractPair = this._ethersProvider.getContract<PairContractContext>(
         JSON.stringify(ContractContext.exactpPairAbi),
         pair
     )
-    return await contractPair.getReserves();
+    let reserves = await contractPair.getReserves();
+    let token0 = await contractPair.token0();
+    let token1 = await contractPair.token1();
+    return [reserves[0], reserves[1], token0, token1];
   }
 
   public async setFeeTo(_feeTo: string): Promise<string> {
